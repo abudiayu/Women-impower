@@ -1,0 +1,147 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: "Instrument Serif", serif;
+}
+
+/* ---------- Liquid glass ---------- */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.15) 20%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.15) 80%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ---------- Small helpers ---------- */
+.btn-press {
+  transition: transform 0.2s ease;
+}
+.btn-press:hover {
+  transform: scale(1.05);
+}
+.btn-press:active {
+  transform: scale(0.95);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+input:focus {
+  outline: none;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  font-family: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --lilac: #dec1fc;
+  --nav: #c2c2c2;
+  --ink: #1a0b1f;
+}
+
+.footer-headline {
+  font-weight: 290;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.footer-link {
+  display: inline-block;
+  color: var(--nav);
+  font-weight: 250;
+  font-size: 14.286px;
+  line-height: 18px;
+  letter-spacing: -0.08em;
+  transition: opacity 0.15s;
+}
+.footer-link:hover {
+  opacity: 0.6;
+}
+
+.footer-mono {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-weight: 400;
+  font-size: 11.37px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.footer-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  padding: 0 18px 0 14px;
+  background: var(--lilac);
+  color: var(--ink);
+  border-radius: 2px;
+  font-weight: 280;
+  font-size: 14.286px;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
+  transition: filter 0.15s;
+}
+.footer-cta:hover {
+  filter: brightness(1.06);
+}
+.footer-cta svg {
+  width: 10px;
+  height: 10px;
+}
+
+:focus-visible {
+  outline: 2px solid #dec1fc;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (hover: none) {
+  .footer-link:hover {
+    opacity: 1;
+  }
+  .footer-cta:hover {
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
