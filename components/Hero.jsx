@@ -1,4 +1,4 @@
-function Hero({ content, brand, links }) {
+function Hero({ content, brand, links, user, onAuth, onLogout }) {
   const videoRef = React.useRef(null);
   const rafRef = React.useRef(0);
   const [email, setEmail] = React.useState("");
@@ -96,13 +96,15 @@ function Hero({ content, brand, links }) {
         style={{ opacity: 0 }}
       />
 
-      <Navbar brand={brand} links={links} />
+      <Navbar
+        brand={brand}
+        links={links}
+        user={user}
+        onAuth={onAuth}
+        onLogout={onLogout}
+      />
 
-      {/*
-        SPACING CONTROL:
-        - pt-16 md:pt-24  -> space between the navbar and the heading (increase to push it lower)
-        - the old -translate-y-[20%] is removed, so nothing overlaps the navbar anymore
-      */}
+      {/* pt-16 md:pt-24 = space between the navbar and the heading */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 pt-16 md:pt-24 pb-12 text-center">
         <h1 className="font-display text-white tracking-tight whitespace-nowrap text-7xl md:text-8xl lg:text-9xl mb-10">
           {content.title_before} <em className="italic">{content.title_italic}</em>.

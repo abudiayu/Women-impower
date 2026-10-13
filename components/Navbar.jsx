@@ -1,4 +1,4 @@
-function Navbar({ brand, links }) {
+function Navbar({ brand, links, user, onAuth, onLogout }) {
   return (
     <nav className="relative z-20 px-6 py-6">
       <div className="fixed top-4 left-1/2 -translate-x-1/2 liquid-glass rounded-full max-w-5xl w-[calc(100%-2rem)] mx-auto px-6 py-3 flex items-center justify-between z-50">
@@ -21,10 +21,34 @@ function Navbar({ brand, links }) {
         </div>
 
         <div className="flex items-center gap-4">
-          <button className="text-white text-sm font-medium">Sign Up</button>
-          <button className="liquid-glass rounded-full px-6 py-2 text-white text-sm font-medium btn-press">
-            Login
-          </button>
+          {user ? (
+            <>
+              <span className="hidden sm:inline text-white/80 text-sm font-medium">
+                Hi, {user.name || user.email}
+              </span>
+              <button
+                onClick={onLogout}
+                className="liquid-glass rounded-full px-6 py-2 text-white text-sm font-medium btn-press"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => onAuth("signup")}
+                className="text-white text-sm font-medium hover:opacity-80 transition-opacity"
+              >
+                Sign Up
+              </button>
+              <button
+                onClick={() => onAuth("login")}
+                className="liquid-glass rounded-full px-6 py-2 text-white text-sm font-medium btn-press"
+              >
+                Login
+              </button>
+            </>
+          )}
         </div>
       </div>
     </nav>
