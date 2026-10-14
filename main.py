@@ -32,7 +32,7 @@ EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 # SITE CONTENT: edit everything here, the React UI updates itself
 # ------------------------------------------------------------------
 SITE_CONTENT = {
-    "brand": "Women",
+    "brand": "Rise",
     "nav_links": ["Stories", "Programs", "About", "Manifesto","Women's Circle"],
     "hero": {
         "title_before": "Rise",
